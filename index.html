@@ -1,367 +1,354 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>stanley martín johnson -- classical studies et philosophy</title>
-    <style>
-        body {
-            font-family: Times, "Times New Roman", serif;
-            background-color: #F5F5DC;
-            color: #333333;
-            margin: 0;
-            padding: 0;
-            line-height: 1.4;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #FFFFFF;
-            border: 2px solid #8B7355;
-            box-shadow: 3px 3px 6px #CCCCCC;
-        }
-        
-        .header {
-            background: linear-gradient(to bottom, #E6E6FA, #D3D3D3);
-            border-bottom: 2px solid #8B7355;
-            padding: 15px;
-            text-align: center;
-        }
-        
-        .header h1 {
-            font-size: 24px;
-            color: #4B0082;
-            margin: 5px 0;
-            text-shadow: 1px 1px 2px #CCCCCC;
-        }
-        
-        .header .subtitle {
-            font-size: 14px;
-            color: #8B4513;
-            font-style: italic;
-            margin: 5px 0;
-        }
-        
-        .navigation {
-            background-color: #F0F8FF;
-            border-bottom: 1px solid #CCCCCC;
-            padding: 8px;
-            text-align: center;
-        }
-        
-        .nav-link {
-            display: inline-block;
-            padding: 4px 12px;
-            margin: 2px 4px;
-            background-color: #E0E0E0;
-            border: 1px outset #CCCCCC;
-            color: #000080;
-            text-decoration: none;
-            font-size: 12px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        
-        .nav-link:hover {
-            background-color: #D0D0D0;
-            border: 1px inset #CCCCCC;
-        }
-        
-        .nav-link.active {
-            background-color: #FFFFCC;
-            border: 1px inset #999999;
-            color: #8B0000;
-        }
-        
-        .content {
-            padding: 20px;
-            min-height: 400px;
-        }
-        
-        .section {
-            display: none;
-        }
-        
-        .section.active {
-            display: block;
-        }
-        
-        .section h2 {
-            font-size: 18px;
-            color: #8B0000;
-            border-bottom: 1px solid #CCCCCC;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-        }
-        
-        .cv-category {
-            margin-bottom: 20px;
-            background-color: #FFFAF0;
-            border: 1px solid #DDD;
-            padding: 10px;
-        }
-        
-        .cv-category h3 {
-            font-size: 14px;
-            color: #4B0082;
-            margin: 0 0 10px 0;
-            text-transform: uppercase;
-            background-color: #E6E6FA;
-            padding: 3px 6px;
-            border: 1px solid #CCCCCC;
-        }
-        
-        .cv-item {
-            margin-bottom: 12px;
-            padding-left: 15px;
-        }
-        
-        .cv-item .title {
-            font-weight: bold;
-            color: #8B0000;
-        }
-        
-        .cv-item .institution {
-            font-style: italic;
-            color: #4B0082;
-        }
-        
-        .cv-item .date {
-            color: #8B4513;
-            font-size: 11px;
-        }
-        
-        .publication {
-            background-color: #F9F9F9;
-            border: 1px solid #CCCCCC;
-            padding: 12px;
-            margin-bottom: 15px;
-        }
-        
-        .publication .title {
-            font-weight: bold;
-            color: #8B0000;
-            margin-bottom: 5px;
-        }
-        
-        .publication .details {
-            color: #333;
-            font-size: 13px;
-            line-height: 1.3;
-        }
-        
-        .publication .journal {
-            font-style: italic;
-            color: #4B0082;
-        }
-        
-        .project {
-            background-color: #FFF8DC;
-            border: 1px solid #DDD;
-            padding: 15px;
-            margin-bottom: 15px;
-        }
-        
-        .project .title {
-            font-weight: bold;
-            color: #8B0000;
-            font-size: 15px;
-            margin-bottom: 8px;
-        }
-        
-        .project .description {
-            color: #333;
-            margin-bottom: 8px;
-            text-align: justify;
-        }
-        
-        .project .status {
-            font-size: 11px;
-            color: #8B4513;
-            font-style: italic;
-        }
-        
-        .footer {
-            background-color: #F0F0F0;
-            border-top: 1px solid #CCCCCC;
-            padding: 10px;
-            text-align: center;
-            font-size: 11px;
-            color: #666666;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            border: 1px solid #CCCCCC;
-            margin: 10px 0;
-        }
-        
-        th, td {
-            border: 1px solid #CCCCCC;
-            padding: 5px 8px;
-            text-align: left;
-            font-size: 12px;
-        }
-        
-        th {
-            background-color: #E6E6FA;
-            font-weight: bold;
-            color: #4B0082;
-        }
-        
-        .update-notice {
-            background-color: #FFFFCC;
-            border: 1px solid #E6E600;
-            padding: 8px;
-            margin-bottom: 15px;
-            font-size: 11px;
-            color: #666;
-        }
-        
-        .email-link {
-            color: #0000FF;
-            text-decoration: underline;
-        }
-        
-        .email-link:visited {
-            color: #800080;
-        }
-        
-        .counter {
-            position: absolute;
-            bottom: 5px;
-            right: 10px;
-            font-size: 10px;
-            color: #999;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>stanley martín johnson -- classical studies et philosophy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      color: #111;
+      font-size: 15px;
+      line-height: 1.6;
+      display: flex;
+    }
+
+    /* Left vertical nav */
+    .sidebar {
+      width: 220px;
+      min-height: 100vh;
+      border-right: 2px solid #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: #fff;
+    }
+
+    .header {
+      margin-bottom: 60px;
+    }
+
+    .header h1 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .header .subtitle {
+      font-size: 12px;
+      color: #444;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .navigation {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .nav-link {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      text-transform: lowercase;
+      text-decoration: none;
+      color: #111;
+      position: relative;
+      padding-left: 4px;
+    }
+
+    .nav-link::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0%;
+      height: 1px;
+      background: #000;
+      transition: width 0.2s ease;
+    }
+
+    .nav-link:hover::before,
+    .nav-link.active::before {
+      width: 100%;
+    }
+
+    .footer {
+      border-top: 1px solid #000;
+      padding-top: 15px;
+      font-size: 11px;
+      font-family: 'JetBrains Mono', monospace;
+      color: #333;
+      text-align: left;
+    }
+
+    /* Main content */
+    .content {
+      margin-left: 240px; /* room for sidebar */
+      padding: 60px;
+      max-width: 800px;
+    }
+
+    .section {
+      display: none;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+    }
+
+    .section.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section h2 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-left: 3px solid #000;
+      padding-left: 10px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin-bottom: 18px;
+      text-align: justify;
+    }
+
+    ul {
+      margin: 20px 0;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .cv-category {
+      border: 1px solid #000;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .cv-category h3 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      margin-bottom: 15px;
+      text-transform: lowercase;
+    }
+
+    .cv-item {
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    .cv-item .title {
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+
+    .cv-item .institution {
+      font-style: italic;
+      color: #444;
+      font-size: 14px;
+    }
+
+    .cv-item .date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #555;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    .project {
+      border: 1px solid #000;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .project .title {
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .project .status {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #444;
+      margin-top: 10px;
+    }
+
+    .coming-soon,
+    .update-notice {
+      border: 1px dashed #000;
+      padding: 20px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      margin-bottom: 20px;
+      color: #444;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #000;
+      padding: 8px 12px;
+      font-size: 14px;
+    }
+
+    th {
+      text-transform: uppercase;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      background: #f5f5f5;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>stanley martín johnson</h1>
-            <div class="subtitle">haverford college</div>
-        </div>
-        
-        <div class="navigation">
-            <a href="#" class="nav-link active" onclick="showSection('home')">home</a>
-            <a href="#" class="nav-link" onclick="showSection('cv')">curriculum vitae</a>
-            <a href="#" class="nav-link" onclick="showSection('publications')">publications</a>
-            <a href="#" class="nav-link" onclick="showSection('research')">research projects</a>
-            <a href="#" class="nav-link" onclick="showSection('teaching')">misc. projects</a> í
-            <a href="#" class="nav-link" onclick="showSection('contact')">contact</a>
-        </div>
-        
-        <div class="content">
-            <div id="home" class="section active">
-                <div class="update-notice">
-                    <strong>last updated:</strong> September 28, 2025
-                </div>
-                
-                <h2>welcome</h2>
-                <p>this is my website. it has things pertaining to my interests and to my person. i worked really hard with all the code so plz enjoy :) </p>
-                
-                #description soon <p></p>
-                
-                <h3>Recent News</h3>
-                <ul>
-                    <li><strong>august 2025:</strong> completed summer intensive at the catholic university of america</li>
-                    <li><strong>june 2024:</strong> transferred to haverford colllege</li>
-                    <li><strong>april 2024:</strong> was awarded the phillip h. ropp literary award @ hampden-sydney college</li>
-                </ul>
-                
-            </div>
-            
-            <div id="cv" class="section">
-                <h2>curriculum vitae</h2>
-                
-                <div class="cv-category">
-                    <h3>education</h3>
-                        <div class="title"> <i>working towards</i> B.A. in classics, w/ minor in philosophy </div>
-                        <div class="institution">haverford college</div>
-                        <div class="date">2027</div>
-                    </div>
-                </div>
-                
-                
-                <div class="cv-category">
-                    <h3>languages</h3>
-                    <div class="cv-item">
-                        <div><strong>Ancient:</strong> learning: latin, ancient greek</div>
-                        <div><strong>Modern:</strong> spanish (native), english (native)</div>
-                    </div>
-                </div>
-                
-                <div class="cv-category">
-                    <h3>fellowships and awards</h3>
-                    <div class="cv-item">
-                        <div class="title">Philip H. Ropp Literary Award</div>
-                        <div class="institution">hampden-sydney college</div>
-                        <div class="date">2024</div>
-                    </div>
-                    <div class="cv-item">
-                        <div class="title"><i>finalist</i> The Sallie Wright Harrison Poetry Award, </div>
-                        <div class="institution">hampden-sydney college english dept.</div>
-                        <div class="date">2024</div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div id="research" class="section">
-                <h2>current research projects</h2>
-                
-                <div class="project">
-                    <div class="title">mary of egypt</div>
-                    <div class="description">
-                        working towards compiling a comprehensive digital archive the hagiographies of st. mary of egypt. 
-                        this project aims to digitize or make more readily accessible works and fragments as well as add
-                        to the project of florian janner. 
-                    </div>
-                    <div class="status">status: working on it</div>
-                </div>
-        
-            
-            <div id="contact" class="section">
-                <h2>contact information</h2>
-                
-                <table>
-                    <tr>
-                        <th>email</th>
-                        <td>smjohnson [at] haverford [dot] edu</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        
-        <div class="footer">
-            © 2025 stanley martín johnson | classical studies et philosophy | lst updated: september 28, 2025
-            <div class="counter">Visitors: 00001234</div>
-        </div>
+  <div class="sidebar">
+    <div>
+      <div class="header">
+        <h1>stanley martín johnson</h1>
+        <div class="subtitle">haverford college</div>
+      </div>
+
+      <div class="navigation">
+        <a href="#" class="nav-link active" onclick="showSection('home')">home</a>
+        <a href="#" class="nav-link" onclick="showSection('cv')">curriculum vitae</a>
+        <a href="#" class="nav-link" onclick="showSection('publications')">publications</a>
+        <a href="#" class="nav-link" onclick="showSection('research')">research projects</a>
+        <a href="#" class="nav-link" onclick="showSection('teaching')">misc. projects</a>
+        <a href="#" class="nav-link" onclick="showSection('contact')">contact</a>
+      </div>
     </div>
-    
-    <script>
-        function showSection(sectionName) {
-            // Hide all sections
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Remove active class from all nav links
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-            });
-            
-            // Show selected section
-            document.getElementById(sectionName).classList.add('active');
-            
-            // Add active class to clicked nav link
-            event.target.classList.add('active');
-        }
-    </script>
+
+    <div class="footer">
+      © 2025 smj<br>
+      last updated: sept 28 2025<br>
+      visitors: 00001234
+    </div>
+  </div>
+
+  <div class="content">
+    <div id="home" class="section active">
+      <div class="update-notice">
+        <strong>last updated:</strong> september 28, 2025
+      </div>
+
+      <h2>welcome</h2>
+      <p>this is my website. it has things pertaining to my interests and to my person. i worked really hard with all the code so plz enjoy :)</p>
+
+      <h2>recent news</h2>
+      <ul>
+        <li><strong>august 2025:</strong> completed summer intensive at the catholic university of america</li>
+        <li><strong>june 2024:</strong> transferred to haverford college</li>
+        <li><strong>april 2024:</strong> awarded the phillip h. ropp literary award @ hampden-sydney college</li>
+      </ul>
+    </div>
+
+    <div id="cv" class="section">
+      <h2>curriculum vitae</h2>
+
+      <div class="cv-category">
+        <h3>education</h3>
+        <div class="cv-item">
+          <div class="date">2027</div>
+          <div class="title"><i>working towards</i> B.A. in classics, w/ minor in philosophy</div>
+          <div class="institution">haverford college</div>
+        </div>
+      </div>
+
+      <div class="cv-category">
+        <h3>languages</h3>
+        <div class="cv-item">
+          <div><strong>ancient:</strong> learning: latin, ancient greek</div>
+          <div><strong>modern:</strong> spanish (native), english (native)</div>
+        </div>
+      </div>
+
+      <div class="cv-category">
+        <h3>fellowships and awards</h3>
+        <div class="cv-item">
+          <div class="date">2024</div>
+          <div class="title">phillip h. ropp literary award</div>
+          <div class="institution">hampden-sydney college</div>
+        </div>
+        <div class="cv-item">
+          <div class="date">2024</div>
+          <div class="title"><i>finalist</i> sallie wright harrison poetry award</div>
+          <div class="institution">hampden-sydney college english dept.</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="publications" class="section">
+      <h2>publications</h2>
+      <div class="coming-soon">publications coming soon...</div>
+    </div>
+
+    <div id="research" class="section">
+      <h2>current research projects</h2>
+      <div class="project">
+        <div class="title">mary of egypt</div>
+        <div class="description">
+          compiling a comprehensive digital archive of the hagiographies of st. mary of egypt. 
+          this project aims to digitize or make more accessible works and fragments, adding
+          to the project of florian janner.
+        </div>
+        <div class="status">status: working on it</div>
+      </div>
+    </div>
+
+    <div id="teaching" class="section">
+      <h2>misc. projects</h2>
+      <div class="coming-soon">miscellaneous projects coming soon...</div>
+    </div>
+
+    <div id="contact" class="section">
+      <h2>contact information</h2>
+      <table>
+        <tr>
+          <th>email</th>
+          <td>smjohnson [at] haverford [dot] edu</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    function showSection(sectionName) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => section.classList.remove('active'));
+      document.getElementById(sectionName).classList.add('active');
+
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => link.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+  </script>
 </body>
 </html>
