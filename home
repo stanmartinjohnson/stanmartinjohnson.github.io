@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. [Your Name] - Classical Studies</title>
+    <style>
+        body {
+            font-family: Times, "Times New Roman", serif;
+            background-color: #F5F5DC;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.4;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border: 2px solid #8B7355;
+            box-shadow: 3px 3px 6px #CCCCCC;
+        }
+        
+        .header {
+            background: linear-gradient(to bottom, #E6E6FA, #D3D3D3);
+            border-bottom: 2px solid #8B7355;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 24px;
+            color: #4B0082;
+            margin: 5px 0;
+            text-shadow: 1px 1px 2px #CCCCCC;
+        }
+        
+        .header .subtitle {
+            font-size: 14px;
+            color: #8B4513;
+            font-style: italic;
+            margin: 5px 0;
+        }
+        
+        .navigation {
+            background-color: #F0F8FF;
+            border-bottom: 1px solid #CCCCCC;
+            padding: 8px;
+            text-align: center;
+        }
+        
+        .nav-link {
+            display: inline-block;
+            padding: 4px 12px;
+            margin: 2px 4px;
+            background-color: #E0E0E0;
+            border: 1px outset #CCCCCC;
+            color: #000080;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .nav-link:hover {
+            background-color: #D0D0D0;
+            border: 1px inset #CCCCCC;
+        }
+        
+        .nav-link.active {
+            background-color: #FFFFCC;
+            border: 1px inset #999999;
+            color: #8B0000;
+        }
+        
+        .content {
+            padding: 20px;
+            min-height: 400px;
+        }
+        
+        .section {
+            display: none;
+        }
+        
+        .section.active {
+            display: block;
+        }
+        
+        .section h2 {
+            font-size: 18px;
+            color: #8B0000;
+            border-bottom: 1px solid #CCCCCC;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .cv-category {
+            margin-bottom: 20px;
+            background-color: #FFFAF0;
+            border: 1px solid #DDD;
+            padding: 10px;
+        }
+        
+        .cv-category h3 {
+            font-size: 14px;
+            color: #4B0082;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            background-color: #E6E6FA;
+            padding: 3px 6px;
+            border: 1px solid #CCCCCC;
+        }
+        
+        .cv-item {
+            margin-bottom: 12px;
+            padding-left: 15px;
+        }
+        
+        .cv-item .title {
+            font-weight: bold;
+            color: #8B0000;
+        }
+        
+        .cv-item .institution {
+            font-style: italic;
+            color: #4B0082;
+        }
+        
+        .cv-item .date {
+            color: #8B4513;
+            font-size: 11px;
+        }
+        
+        .publication {
+            background-color: #F9F9F9;
+            border: 1px solid #CCCCCC;
+            padding: 12px;
+            margin-bottom: 15px;
+        }
+        
+        .publication .title {
+            font-weight: bold;
+            color: #8B0000;
+            margin-bottom: 5px;
+        }
+        
+        .publication .details {
+            color: #333;
+            font-size: 13px;
+            line-height: 1.3;
+        }
+        
+        .publication .journal {
+            font-style: italic;
+            color: #4B0082;
+        }
+        
+        .project {
+            background-color: #FFF8DC;
+            border: 1px solid #DDD;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .project .title {
+            font-weight: bold;
+            color: #8B0000;
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+        
+        .project .description {
+            color: #333;
+            margin-bottom: 8px;
+            text-align: justify;
+        }
+        
+        .project .status {
+            font-size: 11px;
+            color: #8B4513;
+            font-style: italic;
+        }
+        
+        .footer {
+            background-color: #F0F0F0;
+            border-top: 1px solid #CCCCCC;
+            padding: 10px;
+            text-align: center;
+            font-size: 11px;
+            color: #666666;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #CCCCCC;
+            margin: 10px 0;
+        }
+        
+        th, td {
+            border: 1px solid #CCCCCC;
+            padding: 5px 8px;
+            text-align: left;
+            font-size: 12px;
+        }
+        
+        th {
+            background-color: #E6E6FA;
+            font-weight: bold;
+            color: #4B0082;
+        }
+        
+        .update-notice {
+            background-color: #FFFFCC;
+            border: 1px solid #E6E600;
+            padding: 8px;
+            margin-bottom: 15px;
+            font-size: 11px;
+            color: #666;
+        }
+        
+        .email-link {
+            color: #0000FF;
+            text-decoration: underline;
+        }
+        
+        .email-link:visited {
+            color: #800080;
+        }
+        
+        .counter {
+            position: absolute;
+            bottom: 5px;
+            right: 10px;
+            font-size: 10px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Dr. [Your Name]</h1>
+            <div class="subtitle">Assistant Professor of Classical Studies</div>
+            <div class="subtitle">[Your University]</div>
+        </div>
+        
+        <div class="navigation">
+            <a href="#" class="nav-link active" onclick="showSection('home')">Home</a>
+            <a href="#" class="nav-link" onclick="showSection('cv')">Curriculum Vitae</a>
+            <a href="#" class="nav-link" onclick="showSection('publications')">Publications</a>
+            <a href="#" class="nav-link" onclick="showSection('research')">Research Projects</a>
+            <a href="#" class="nav-link" onclick="showSection('teaching')">Teaching</a>
+            <a href="#" class="nav-link" onclick="showSection('contact')">Contact</a>
+        </div>
+        
+        <div class="content">
+            <div id="home" class="section active">
+                <div class="update-notice">
+                    <strong>Last Updated:</strong> September 28, 2025
+                </div>
+                
+                <h2>Welcome</h2>
+                <p>Welcome to my academic homepage. I am an Assistant Professor of Classical Studies at [Your University], specializing in Roman literature, ancient historiography, and digital humanities approaches to classical texts.</p>
+                
+                <p>My research focuses on the intersection of literature and politics in the Late Republic, with particular attention to how historical narratives shaped and reflected contemporary political discourse. I am currently working on a monograph examining the rhetorical strategies employed by ancient historians in their accounts of civil conflict.</p>
+                
+                <h3>Recent News</h3>
+                <ul>
+                    <li><strong>September 2025:</strong> Awarded fellowship from the American Academy in Rome</li>
+                    <li><strong>August 2025:</strong> New article published in <em>Classical Philology</em></li>
+                    <li><strong>June 2025:</strong> Presented paper at the Annual Meeting of the Classical Association</li>
+                </ul>
+                
+                <h3>Current Courses (Fall 2025)</h3>
+                <ul>
+                    <li>CLAS 101: Introduction to Classical Civilization</li>
+                    <li>CLAS 350: Roman Historiography</li>
+                    <li>CLAS 485: Senior Seminar in Classical Studies</li>
+                </ul>
+            </div>
+            
+            <div id="cv" class="section">
+                <h2>Curriculum Vitae</h2>
+                
+                <div class="cv-category">
+                    <h3>Education</h3>
+                    <div class="cv-item">
+                        <div class="title">Ph.D. in Classical Studies</div>
+                        <div class="institution">Harvard University</div>
+                        <div class="date">2018</div>
+                        <div>Dissertation: "Constructing Crisis: Historical Narrative and Political Rhetoric in Late Republican Rome"</div>
+                    </div>
+                    <div class="cv-item">
+                        <div class="title">M.A. in Classical Languages</div>
+                        <div class="institution">University of Oxford</div>
+                        <div class="date">2012</div>
+                    </div>
+                    <div class="cv-item">
+                        <div class="title">B.A. in Classics, magna cum laude</div>
+                        <div class="institution">Yale University</div>
+                        <div class="date">2010</div>
+                    </div>
+                </div>
+                
+                <div class="cv-category">
+                    <h3>Academic Positions</h3>
+                    <div class="cv-item">
+                        <div class="title">Assistant Professor of Classical Studies</div>
+                        <div class="institution">[Your University]</div>
+                        <div class="date">2019-present</div>
+                    </div>
+                    <div class="cv-item">
+                        <div class="title">Postdoctoral Fellow</div>
+                        <div class="institution">Princeton University, Department of Classics</div>
+                        <div class="date">2018-2019</div>
+                    </div>
+                </div>
+                
+                <div class="cv-category">
+                    <h3>Languages</h3>
+                    <div class="cv-item">
+                        <div><strong>Ancient:</strong> Latin, Ancient Greek, some Sanskrit</div>
+                        <div><strong>Modern:</strong> Italian (fluent), German (reading), French (reading)</div>
+                    </div>
+                </div>
+                
+                <div class="cv-category">
+                    <h3>Fellowships and Awards</h3>
+                    <div class="cv-item">
+                        <div class="title">Rome Prize Fellowship</div>
+                        <div class="institution">American Academy in Rome</div>
+                        <div class="date">2025-2026</div>
+                    </div>
+                    <div class="cv-item">
+                        <div class="title">Early Career Research Award</div>
+                        <div class="institution">Society for Classical Studies</div>
+                        <div class="date">2023</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="publications" class="section">
+                <h2>Publications</h2>
+                
+                <h3>Books</h3>
+                <div class="publication">
+                    <div class="title">Crisis and Narrative: Historical Writing in Late Republican Rome</div>
+                    <div class="details">Cambridge University Press, 2024 (under contract)</div>
+                </div>
+                
+                <h3>Peer-Reviewed Articles</h3>
+                <div class="publication">
+                    <div class="title">"Sallust's <em>Bellum Catilinae</em> and the Politics of Memory"</div>
+                    <div class="details"><span class="journal">Classical Philology</span> 120.3 (2025): 345-372</div>
+                </div>
+                
+                <div class="publication">
+                    <div class="title">"Digital Approaches to Studying Ancient Historiography"</div>
+                    <div class="details"><span class="journal">Digital Classics Online</span> 8.2 (2024): 123-145</div>
+                </div>
+                
+                <div class="publication">
+                    <div class="title">"Tacitus and the Rhetoric of Civil War"</div>
+                    <div class="details"><span class="journal">American Journal of Philology</span> 144.1 (2023): 89-115</div>
+                </div>
+                
+                <h3>Book Reviews</h3>
+                <div class="publication">
+                    <div class="title">Review of Smith, <em>Republican Historiography</em></div>
+                    <div class="details"><span class="journal">Classical Review</span> 74.2 (2024): 234-236</div>
+                </div>
+                
+                <div class="publication">
+                    <div class="title">Review of Jones, <em>Politics and Prose in Ancient Rome</em></div>
+                    <div class="details"><span class="journal">Bryn Mawr Classical Review</span> 2023.08.15</div>
+                </div>
+            </div>
+            
+            <div id="research" class="section">
+                <h2>Research Projects</h2>
+                
+                <div class="project">
+                    <div class="title">The Digital Sallust Archive</div>
+                    <div class="description">
+                        A comprehensive digital edition of Sallust's works with advanced search capabilities, 
+                        linguistic analysis tools, and intertextual connections to contemporary sources. 
+                        This project aims to provide scholars with new ways to analyze rhetorical patterns 
+                        and historical methodologies in Late Republican historiography.
+                    </div>
+                    <div class="status">Status: In development (funded by NEH Digital Humanities Start-Up Grant)</div>
+                </div>
+                
+                <div class="project">
+                    <div class="title">Civil War Narratives in Ancient Historiography</div>
+                    <div class="description">
+                        Comparative study examining how different ancient historians (Sallust, Livy, Tacitus, 
+                        Appian) constructed narratives of civil conflict. Focus on rhetorical strategies, 
+                        moral frameworks, and political implications of their historical accounts.
+                    </div>
+                    <div class="status">Status: Manuscript in preparation</div>
+                </div>
+                
+                <div class="project">
+                    <div class="title">Women in Roman Historical Texts</div>
+                    <div class="description">
+                        Analysis of the representation of women in Roman historiography, examining how 
+                        female characters function within broader narratives of political and social change. 
+                        Particular attention to the intersection of gender, class, and political agency.
+                    </div>
+                    <div class="status">Status: Early research phase</div>
+                </div>
+            </div>
+            
+            <div id="teaching" class="section">
+                <h2>Teaching</h2>
+                
+                <h3>Current Courses (Fall 2025)</h3>
+                <table>
+                    <tr>
+                        <th>Course</th>
+                        <th>Title</th>
+                        <th>Time</th>
+                        <th>Enrollment</th>
+                    </tr>
+                    <tr>
+                        <td>CLAS 101</td>
+                        <td>Introduction to Classical Civilization</td>
+                        <td>MWF 10:00-10:50</td>
+                        <td>45</td>
+                    </tr>
+                    <tr>
+                        <td>CLAS 350</td>
+                        <td>Roman Historiography</td>
+                        <td>TR 2:00-3:15</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td>CLAS 485</td>
+                        <td>Senior Seminar</td>
+                        <td>W 3:00-5:30</td>
+                        <td>8</td>
+                    </tr>
+                </table>
+                
+                <h3>Previous Courses Taught</h3>
+                <ul>
+                    <li>Elementary Latin I & II</li>
+                    <li>Intermediate Latin</li>
+                    <li>Roman Literature in Translation</li>
+                    <li>Ancient Biography</li>
+                    <li>Digital Humanities and Classical Studies</li>
+                    <li>Women in the Ancient World</li>
+                </ul>
+                
+                <h3>Office Hours</h3>
+                <p>Tuesdays and Thursdays, 3:30-5:00 PM<br>
+                Or by appointment</p>
+            </div>
+            
+            <div id="contact" class="section">
+                <h2>Contact Information</h2>
+                
+                <table>
+                    <tr>
+                        <th>Office</th>
+                        <td>[Building Name] Room 123</td>
+                    </tr>
+                    <tr>
+                        <th>Phone</th>
+                        <td>(555) 123-4567</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td><a href="mailto:your.name@university.edu" class="email-link">your.name@university.edu</a></td>
+                    </tr>
+                    <tr>
+                        <th>Mailing Address</th>
+                        <td>Department of Classical Studies<br>
+                        [Your University]<br>
+                        [Address]<br>
+                        [City, State ZIP]</td>
+                    </tr>
+                </table>
+                
+                <h3>Links</h3>
+                <ul>
+                    <li><a href="#" class="email-link">Academia.edu Profile</a></li>
+                    <li><a href="#" class="email-link">ORCID: 0000-0000-0000-0000</a></li>
+                    <li><a href="#" class="email-link">Google Scholar Profile</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer">
+            © 2025 Dr. [Your Name] | Classical Studies | Last updated: September 28, 2025
+            <div class="counter">Visitors: 00001234</div>
+        </div>
+    </div>
+    
+    <script>
+        function showSection(sectionName) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all nav links
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionName).classList.add('active');
+            
+            // Add active class to clicked nav link
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
