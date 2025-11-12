@@ -348,7 +348,29 @@
           <td>smjohnson [at] haverford [dot] edu</td>
         </tr>
       </table>
+      
     </div>
+    <div id="musca" class="section">
+  <h2> <b>musca </b>- vincent bourne</h2>
+  <p>
+   
+    Potare, musca, de meo aut quovis scypho,
+    Vocata, non vocata, praesens advena,
+    Lubens libensque curiosam exple sitim,
+    Siccare totum si valebis poculum. spacer
+    Fugacis aevi quod potes carpe, arripe,
+    Aevi perire non morantis indies.
+
+    Utriusque vita properat, et tua et mea,
+    Ad exitum cursu incitato vergere.
+    Aestas tuae nec amplius spatium est meae,
+    Ad bis tricenas usque si redit vices.spacer 
+    Cum praeteribit bis tricena, sicuti
+    Unius aestatis videbitur fuga.
+
+  </p>
+</div>
+
   </div>
 
   <script>
@@ -360,6 +382,11 @@
       const navLinks = document.querySelectorAll('.nav-link');
       navLinks.forEach(link => link.classList.remove('active'));
       event.target.classList.add('active');
+      
+    const params = new URLSearchParams(window.location.search);
+      const page = params.get('page');
+      if (page && document.getElementById(page)) {
+      showSection(page);
     }
   </script>
 </body>
