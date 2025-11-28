@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mary of egypt project - stanley martín johnson</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      color: #111;
+      font-size: 15px;
+      line-height: 1.6;
+      display: flex;
+    }
+
+    .sidebar {
+      width: 220px;
+      min-height: 100vh;
+      border-right: 2px solid #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: #fff;
+    }
+
+    .header {
+      margin-bottom: 60px;
+    }
+
+    .header h1 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .header .subtitle {
+      font-size: 12px;
+      color: #444;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .navigation {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .nav-link {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      text-transform: lowercase;
+      text-decoration: none;
+      color: #111;
+      position: relative;
+      padding-left: 4px;
+      cursor: pointer;
+    }
+
+    .nav-link::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0%;
+      height: 1px;
+      background: #000;
+      transition: width 0.2s ease;
+    }
+
+    .nav-link:hover::before,
+    .nav-link.active::before {
+      width: 100%;
+    }
+
+    .nav-section-header {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #666;
+      margin-top: 20px;
+      margin-bottom: 8px;
+      padding-left: 4px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+
+    .sub-link {
+      padding-left: 20px;
+      font-size: 13px;
+    }
+
+    .sub-link::before {
+      left: 16px;
+    }
+
+    .footer {
+      border-top: 1px solid #000;
+      padding-top: 15px;
+      font-size: 11px;
+      font-family: 'JetBrains Mono', monospace;
+      color: #333;
+      text-align: left;
+    }
+
+    .content {
+      margin-left: 240px;
+      padding: 60px;
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    .page-header {
+      margin-bottom: 40px;
+    }
+
+    .page-header h2 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-left: 3px solid #000;
+      padding-left: 10px;
+      margin-bottom: 15px;
+    }
+
+    .page-header p {
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+
+    .pdf-section {
+      display: none;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+    }
+
+    .pdf-section.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .pdf-container {
+      border: 2px solid #000;
+      background: #f5f5f5;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    .pdf-header {
+      background: #000;
+      color: #fff;
+      padding: 15px 20px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .pdf-viewer {
+      width: 100%;
+      height: 800px;
+      border: none;
+      background: #fff;
+    }
+
+    .download-link {
+      color: #fff;
+      text-decoration: none;
+      border: 1px solid #fff;
+      padding: 5px 10px;
+      font-size: 11px;
+      transition: all 0.2s ease;
+    }
+
+    .download-link:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    .intro-section {
+      border: 1px solid #000;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+
+    .intro-section h3 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      margin-bottom: 15px;
+      text-transform: lowercase;
+    }
+
+    @media (max-width: 768px) {
+      .content {
+        margin-left: 0;
+        padding: 30px 20px;
+      }
+      
+      .sidebar {
+        position: relative;
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid #000;
+      }
+
+      .pdf-viewer {
+        height: 600px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div>
+      <div class="header">
+        <h1>stanley martín johnson</h1>
+        <div class="subtitle">haverford college</div>
+      </div>
+
+      <div class="navigation">
+        <a href="index.html" class="nav-link">← back to home</a>
+        <a class="nav-link active" onclick="showPDF('overview')">overview</a>
+        <div class="nav-section-header">petrus de natalibus</div>
+        <a class="nav-link sub-link" onclick="showPDF('translation')">english translation</a>
+        <a class="nav-link sub-link" onclick="showPDF('digitized')">digitized manuscript</a>
+        <a class="nav-link sub-link" onclick="showPDF('original')">source manuscript</a>
+      </div>
+    </div>
+
+    <div class="footer">
+      © 2025 smj<br>
+      mary of egypt project
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="page-header">
+      <h2>mary of egypt</h2>
+      <p>a comprehensive digital archive of the hagiographies of st. mary of egypt</p>
+    </div>
+
+    <!-- Overview Section -->
+    <div id="overview" class="pdf-section active">
+      <div class="intro-section">
+        <h3>about this project</h3>
+        <p>This project compiles and digitizes various accounts of St. Mary of Egypt, a 5th-century ascetic whose story became one of the most popular hagiographies in medieval Christianity. The texts preserved here include Latin accounts from Petrus de Natalibus' <em>Catalogus Sanctorum et Gestorum Eorum</em> (14th century).</p>
+        
+        <p>The materials available include my English translation from the Latin, a Unicode digitization of the manuscript for scholarly reference, and the original manuscript source.</p>
+
+        <h3 style="margin-top: 25px;">project goals</h3>
+        <p>This archive aims to make these texts more accessible to scholars and general readers, contributing to the broader project of documenting Mary of Egypt's literary tradition. This work builds upon and complements the research of Florian Janner and other scholars in the field.</p>
+      </div>
+
+      <div style="border: 1px dashed #000; padding: 20px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #444;">
+        <strong>navigation:</strong> use the sidebar to access different versions of the text
+      </div>
+    </div>
+
+    <!-- English Translation -->
+    <div id="translation" class="pdf-section">
+      <div class="pdf-container">
+        <div class="pdf-header">
+          <span>english translation · petrus de natalibus</span>
+          <a href="path/to/translation.pdf" download class="download-link">download pdf</a>
+        </div>
+        <iframe class="pdf-viewer" src="path/to/translation.pdf"></iframe>
+      </div>
+    </div>
+
+    <!-- Digitized Manuscript -->
+    <div id="digitized" class="pdf-section">
+      <div class="pdf-container">
+        <div class="pdf-header">
+          <span>unicode digitization · catalogus sanctorum</span>
+          <a href="path/to/digitized.pdf" download class="download-link">download pdf</a>
+        </div>
+        <iframe class="pdf-viewer" src="path/to/digitized.pdf"></iframe>
+      </div>
+    </div>
+
+    <!-- Source Manuscript -->
+    <div id="original" class="pdf-section">
+      <div class="pdf-container">
+        <div class="pdf-header">
+          <span>source manuscript</span>
+          <a href="path/to/original.pdf" download class="download-link">download pdf</a>
+        </div>
+        <iframe class="pdf-viewer" src="path/to/original.pdf"></iframe>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function showPDF(section) {
+      // Hide all sections
+      const sections = document.querySelectorAll('.pdf-section');
+      sections.forEach(s => s.classList.remove('active'));
+      
+      // Show selected section
+      const target = document.getElementById(section);
+      if (target) target.classList.add('active');
+
+      // Update nav links
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => link.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>
